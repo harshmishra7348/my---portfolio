@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title> Harsh poetfolio</title>
+  <meta name="description" content="Professional portfolio of a B.Tech student showcasing projects, skills, certificates, and contact links." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f172a;          /* slate-900 */
+      --bg-soft: #111827;     /* gray-900 */
+      --card: #111827;        /* gray-900 */
+      --text: #e5e7eb;        /* gray-200 */
+      --muted: #9ca3af;       /* gray-400 */
+      --primary: #22c55e;     /* green-500 */
+      --primary-700: #15803d; /* green-700 */
+      --accent: #38bdf8;      /* sky-400 */
+      --border: #1f2937;      /* gray-800 */
+      --shadow: rgba(0,0,0,0.35);
+    }
+
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(180deg, var(--bg) 0%, #0b1224 100%);
+      color: var(--text);
+      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* Layout */
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header / Nav */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(8px);
+      background: rgba(15, 23, 42, 0.6);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+    .brand .logo {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      box-shadow: 0 6px 18px var(--shadow);
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 18px;
+      margin: 0;
+      padding: 0;
+    }
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: 0.2s ease;
+      border: 1px solid transparent;
+    }
+    nav a:hover {
+      border-color: var(--border);
+      background: rgba(255,255,255,0.04);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 64px 0 36px;
+    }
+    .hero-card {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      background: linear-gradient(180deg, var(--card), #0e162c);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 12px 30px var(--shadow);
+    }
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: 2rem;
+    }
+    .hero p {
+      margin: 0 0 16px;
+      color: var(--muted);
+    }
+    .hero .cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      color: var(--text);
+      text-decoration: none;
+      transition: 0.2s ease;
+      background: rgba(255,255,255,0.03);
+    }
+    .btn:hover {
+      transform: translateY(-1px);
+      border-color: var(--accent);
+      box-shadow: 0 8px 20px var(--shadow);
+    }
+    .btn.primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-700));
+      border-color: transparent;
+      color: #0b1224;
+      font-weight: 700;
+    }
+    .avatar {
+      width: 100%;
+      min-height: 220px;
+      border-radius: 14px;
+      background:
+        radial-gradient(120px 120px at 20% 30%, rgba(34,197,94,0.25), transparent 60%),
+        radial-gradient(120px 120px at 80% 70%, rgba(56,189,248,0.25), transparent 60%),
+        linear-gradient(180deg, #0e162c, #0b1224);
+      border: 1px solid var(--border);
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* Section */
+    section {
+      padding: 28px 0;
+    }
+    .section-title {
+      font-size: 1.4rem;
+      margin: 0 0 14px;
+    }
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+    .grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .card {
+      background: linear-gradient(180deg, var(--card), #0e162c);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: 0 8px 24px var(--shadow);
+    }
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 1.05rem;
+    }
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+    .tag {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: rgba(255,255,255,0.03);
+      font-size: 0.85rem;
+      margin: 6px 6px 0 0;
+    }
+
+    /* Timeline (Education) */
+    .timeline {
+      border-left: 2px solid var(--border);
+      padding-left: 14px;
+    }
+    .timeline-item {
+      margin: 0 0 16px;
+      position: relative;
+    }
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -10px;
+      top: 4px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(56,189,248,0.15);
+    }
+
+    /* Certificates gallery */
+    .certs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .cert {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.03);
+      padding: 12px;
+      transition: 0.2s ease;
+    }
+    .cert:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px var(--shadow);
+      border-color: var(--accent);
+    }
+    .cert h4 {
+      margin: 0 0 6px;
+      font-size: 1rem;
+    }
+    .cert .issuer {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .cert .meta {
+      margin-top: 6px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .cert .actions {
+      margin-top: 10px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 24px;
+      padding: 24px 0 40px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      text-align: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-card { grid-template-columns: 1fr; }
+      .grid-2 { grid-template-columns: 1fr; }
+      .grid-3 { grid-template-columns: 1fr; }
+      .certs { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <span>Harsh Mishra</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#certificates">Certificates</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-card">
+      <div>
+        <h1>B.Tech Student — Harsh Mishra</h1>
+        <p><i> <u>Focused on building reliable, scalable solutions in web development, data structures, and problem solving. Open to internships and entry-level roles.</i></u>   I am a dedicated B.Tech student with a keen interest in software development and web technologies. My academic journey and self-learning have helped me develop a strong foundation in programming, data structures, and front-end development.
+I am focused on writing clean, maintainable code and creating responsive designs that enhance user experience. I am open to internships, collaborative projects, and entry-level roles that allow me to apply my skills, gain industry exposure, and grow professionally in the tech field.</p>
+        <div class="cta">
+          <a class="btn primary" id="resumeBtn" href="https://harsh-mishra-resume-2.tiiny.site" target="_blank" rel="noopener">Download Resume</a><br>
+          <a class="btn" id="linkedinBtn" href="#https://www.linkedin.com/in/harsh-mishra-585a2a318?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener">LinkedIn</a><br>
+          <a class="btn" id="githubBtn" href="#https://github.com/harshmishra7348" target="_blank" rel="noopener">GitHub</a><br>
+          <a class="btn" href="#contact">Contact</a>
+        </div>
+      </div>
+      <div class="avatar">
+      <img src="mishra1.jpg" alt="harsh mishra">
+        <div>
+                 </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About</h2>
+      <div class="card">
+        <p>
+          I’m a B.Tech student specializing in Computer Science. I enjoy building full‑stack applications, optimizing algorithms, and learning modern tooling.
+          I’m comfortable with JavaScript, Python, and Java, and I love turning ideas into working products.
+        </p>
+        <div style="margin-top:10px;">
+          <span class="tag">Web Dev</span>
+          <span class="tag">DSA</span>
+          <span class="tag">Problem Solving</span>
+          <span class="tag">Open Source</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills & Tools -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">Skills</h2>
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>Languages</h3>
+          <p>Html,CSS,Bootstrap,JavaScript,SQL,TypeScript, Python, Java, C++</p>
+        </div>
+        <div class="card">
+          <h3>Frameworks</h3>
+          <p>React, Node.js, Express, Next.js</p>
+        </div>
+        <div class="card">
+          <h3>Tools</h3>
+          <p>Git, GitHub, Docker, VS Code, Postman</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>Project One — Smart Task Manager</h3>
+          <p>Full‑stack app with authentication, task boards, and analytics. Built with React, Node.js, and MongoDB.</p>
+          <div class="actions" style="margin-top:10px;">
+            <a class="btn" href="#" target="_blank" rel="noopener">Live Demo</a>
+            <a class="btn" href="#" target="_blank" rel="noopener">Source Code</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Project Two — DSA Visualizer</h3>
+          <p>Interactive visualizations for sorting, graphs, and dynamic programming. Built with vanilla JS and Canvas.</p>
+          <div class="actions" style="margin-top:10px;">
+            <a class="btn" href="#" target="_blank" rel="noopener">Live Demo</a>
+            <a class="btn" href="#" target="_blank" rel="noopener">Source Code</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education">
+    <div class="container">
+      <h2 class="section-title">Education</h2>
+      <div class="card timeline">
+        <div class="timeline-item">
+          <h3>B.Tech in Computer Science — Kashi institute of technology</h3>
+          <p>2022–2026 • CGPA: 8.0/10 </p>
+        </div>
+        <div class="timeline-item">
+          <h3>Senior Secondary — S BB S S Inter College</h3>
+          <p>PCM • Percentage: 79%</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certificates -->
+  <section id="certificates">
+    <div class="container">
+      <h2 class="section-title">Certificates</h2>
+      <div class="certs">
+        <div class="cert">
+          <h4>Java Internship</h4>
+          <div class="issuer">The internship maker • 2025</div>
+          <div class="meta">01/06/24--01/07/24</div>
+          <div class="actions">
+            <a class="btn" href="https://qrr.to/573e4858" target="_blank" rel="noopener">View Certificate</a>
+            <a class="btn" href="#" target="_blank" rel="noopener">Verify</a>
+          </div>
+        </div>
+        <div class="cert">
+          <h4> Web Development IIT Hyderabad</h4>
+          <div class="issuer">Internselite • 2024</div>
+          <div class="meta">06 sep 2024-- 22 nov 2024</div>
+          <div class="actions">
+            <a class="btn" href="https://qrr.to/a080e6ca" target="_blank" rel="noopener">View Certificate</a>
+            <a class="btn" href="#" target="_blank" rel="noopener">Verify</a>
+          </div>
+        </div>
+        <div class="cert">
+          <h4>Introduction to Generative AI-- Simplilearn & Google Cloud</h4>
+          <div class="issuer"> Certificate </div>
+          <div class="meta">2024--2025</div>
+          <div class="actions">
+            <a class="btn" href="https://qrr.to/573e4858" target="_blank" rel="noopener">View Certificate</a>
+            <a class="btn" href="#" target="_blank" rel="noopener">Verify</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>Get in touch</h3>
+          <p>Email: <a href="sabhajit.mishra.1976@gmail.com">sabhajit.mishra.1976@gmail.com</a></p>
+<P> Mobile no:7348053540 </p>
+          <p>Location:221307, Varanasi,UP, India</p>
+        </div>
+        <div class="card">
+          <h3>Quick links</h3>
+          <div class="cta" style="margin-top:6px;">
+            <a class="btn" id="resumeBtn2" href="https://harsh-mishra-resume-2.tiiny.site" target="_blank" rel="noopener">Resume</a>
+            <a class="btn" id="linkedinBtn2" href="https://www.linkedin.com/in/harsh-mishra-585a2a318?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn" id="githubBtn2" href="#https://github.com/harshmishra7348" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      © <span id="year"></span>Harsh Mishra •Portfolio
+    </div>
+  </footer>
+
+  <script>
+    // ====== Personalize these links ======
+    const LINKS = {
+      resume: "https://harsh-mishra-resume-2.tiiny.site",
+      linkedin: "https://www.linkedin.com/in/your-username",
+      github: "https://github.com/your-username"
+    };
+
+    // Attach links to buttons
+    function setLinks() {
+      const ids = [
+        ["resumeBtn", LINKS.resume],
+        ["linkedinBtn", LINKS.linkedin],
+        ["githubBtn", LINKS.github],
+        ["resumeBtn2", LINKS.resume],
+        ["linkedinBtn2", LINKS.linkedin],
+        ["githubBtn2", LINKS.github],
+      ];
+      ids.forEach(([id, url]) => {
+        const el = document.getElementById(id);
+        if (el) el.href = url;
+      });
+    }
+
+    // Smooth scroll for internal links
+    function enableSmoothScroll() {
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        });
+      });
+    }
+
+    // Current year in footer
+    function setYear() {
+      const y = document.getElementById("year");
+      if (y) y.textContent = new Date().getFullYear();
+    }
+
+    // Initialize
+    setLinks();
+    enableSmoothScroll();
+    setYear();
+  </script>
+</body>
+</html>
